@@ -6,4 +6,4 @@ from .models import Video
 
 def index(request):
     videos = Video.objects.all().order_by('-created_at')
-    return render(request, 'video/index.html', {'videos': videos})
+    return render(request, 'vidzine/index.html', {'videos': videos})

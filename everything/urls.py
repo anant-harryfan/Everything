@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('vidzine/', include('vidzine.urls', namespace='vidzine')),
-    path('', include('vidzine.urls', namespace=None)),
 ]
 
 # Serve media files in development

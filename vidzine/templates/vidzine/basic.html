@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>borepanti</title>
+    <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'vidzine/css/basic.css' %}">
+    <link rel="stylesheet" href="{% static 'vidzine/css/styles.css' %}">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="theme-color" content="#0d1117">
+    {% block css %}{% endblock css %}
 </head>
 <body>
     
     <header>
-        <h1 class="title reveal-text">The Hidden Realm</h1>
-        <p class="subtitle fade-in">Discover what lies beneath the surface</p>
         <div class="nav-container">
             <nav class="main-nav">
                 <ul>
@@ -25,7 +26,7 @@
             </nav>
         </div>
     </header>
-    
+    {% block body %} {% endblock body %}
     
     <footer>
         <p>Explore the hidden dimensions of this website</p>
@@ -42,4 +43,5 @@
     </footer>
 </body>
 <script src="{% static 'vidzine/js/basic.js' %}"></script>
+{% block script %}{% endblock script %}
 </html>

@@ -1,0 +1,226 @@
+/* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #0d1117;
+    --secondary-color: #161b22;
+    --accent-color: #58a6ff;
+    --text-color: #f0f6fc;
+    --highlight-color: #7f3ace;
+    --portal-color-1: #8a2be2;
+    --portal-color-2: #4b0082;
+    --red-primary: #ff0000;
+    --green-primary: #00ff00;
+    --blue-primary: #0000ff;
+    --transition-time: 0.5s;
+    --section-padding: 3rem 0;
+    --shade-color-1: rgba(138, 43, 226, 0.1);
+    --shade-color-2: rgba(88, 166, 255, 0.1);
+    --shade-color-3: rgba(127, 58, 206, 0.1);
+}
+
+/* Light Mode Variables */
+.light-mode {
+    --primary-color: #f0f6fc;
+    --secondary-color: #edf2f7;
+    --accent-color: #0969da;
+    --text-color: #24292f;
+    --highlight-color: #6e40c9;
+    --shade-color-1: rgba(105, 90, 205, 0.05);
+    --shade-color-2: rgba(9, 105, 218, 0.05);
+    --shade-color-3: rgba(110, 64, 201, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    transition: background-color 1s ease, color 1s ease;
+    position: relative;
+}
+
+/* Section highlight effects */
+section {
+    position: relative;
+    transition: background-color 0.5s ease;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 40px);
+    background: radial-gradient(circle at center, transparent 90%, var(--primary-color));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+section:hover::after {
+    opacity: 0.5;
+}
+
+
+
+.rgb-color-selector:hover .wheel-color-dot {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+/* Spectrum bar color picker - Footer section */
+.spectrum-bar {
+    position: relative;
+    overflow: hidden;
+    height: 20px !important;
+    cursor: crosshair;
+    transition: height 0.2s ease, box-shadow 0.3s ease;
+}
+
+.spectrum-bar:hover {
+    height: 22px !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.spectrum-picker-wrapper {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.spectrum-color-indicator {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+    top: -5px;
+    left: 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: left 0.1s ease, opacity 0.3s ease;
+}
+
+.spectrum-color-preview {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #ccc;
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Color scroll effect */
+.spectrum-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    background-image: linear-gradient(45deg, var(--accent-color), var(--highlight-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Color Mode Toggle */
+.color-mode-toggle {
+    display: none;
+}
+
+/* Navigation */
+.nav-container {
+    margin-top: 2rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent-color), var(--highlight-color));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}

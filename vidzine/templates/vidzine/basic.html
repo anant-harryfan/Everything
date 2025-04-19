@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>borepanti</title>
+    <link rel="stylesheet" href="{% static 'vidzine/css/basic.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#0d1117">
+</head>
+<body>
+    
+    <header>
+        <h1 class="title reveal-text">The Hidden Realm</h1>
+        <p class="subtitle fade-in">Discover what lies beneath the surface</p>
+        <div class="nav-container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#portals" class="nav-link">Portals</a></li>
+                    <li><a href="#dimensions" class="nav-link">Dimensions</a></li>
+                    <li><a href="#secrets" class="nav-link">Secrets</a></li>
+                    <li><a href="#cryptex" class="nav-link">Cryptex</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    
+    <footer>
+        <p>Explore the hidden dimensions of this website</p>
+        <div class="color-spectrum">
+            <div class="spectrum-bar" data-is-colorpicker="true" data-colorpicker-secret="true"></div>
+            <p class="spectrum-note">Every color contains a story</p>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="hidden-hover"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hidden-hover"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hidden-hover"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="hidden-footer-message">Sometimes the path is visible only to those who know where to look</div>
+    </footer>
+</body>
+<script src="{% static 'vidzine/js/basic.js' %}"></script>
+</html>
